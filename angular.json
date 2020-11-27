@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ejercicio-app"
+  "defaultProject": "ejercicio-app",
+  "cli": {
+    "analytics": false
+  }
 }

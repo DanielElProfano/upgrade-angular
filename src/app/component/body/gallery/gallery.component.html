@@ -1,0 +1,15 @@
+<p>gallery works!</p>
+<app-form></app-form>
+<div class="gallery">
+    <div class="gallery__container">
+        <div *ngFor="let foto of fotos" class="gallery__foto">
+            
+            <div class="foto">
+                <img src="{{ foto. img }}" alt="{{ foto.alt }}">
+                <p>{{ foto.color }} </p>
+                <p>{{ foto.price }} </p>
+            </div>  
+        </div>
+    </div>  
+
+ </div>

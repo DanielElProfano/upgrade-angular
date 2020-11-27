@@ -4,7 +4,8 @@ export interface Igallery {
     alt : string,
     description: string,
     price: number,
-    color: string
+    color: string,
+    id: number;
 
 
     

@@ -8,7 +8,7 @@ import { Igallery } from './Igallery';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-
+   borrar = false;
 fotos : Igallery[] | null = null;
 
   constructor(private galleryService : GalleryService) { 
@@ -17,8 +17,27 @@ fotos : Igallery[] | null = null;
   }
 
   ngOnInit(): void {
-    debugger
+    
     this.fotos = this.galleryService.getGalleryService();
+
+
+  }
+
+  deleteFoto(e:any){
+    debugger
+    let deleteId = e.target.id
+    this.fotos = this.galleryService.deleteFoto(deleteId)
+    console.log("Borrar ---" +deleteId);
+    this.borrar = true;
+
+
+    
+  }
+  modifyFoto(e:object){
+    
+    
+    this.borrar = true;
+    debugger
 
 
   }

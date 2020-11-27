@@ -1,9 +1,11 @@
 
 import { Igallery } from '../Igallery';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 
 import { GalleryService } from 'src/app/services/gallery.service';
+import {AnimationOptions} from "ngx-lottie";
+import {AnimationItem} from "lottie-web";
 
 
 
@@ -14,7 +16,11 @@ import { GalleryService } from 'src/app/services/gallery.service';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  options: AnimationOptions = {
+    path: 'https://assets4.lottiefiles.com/packages/lf20_5iAXkw.json'
+  };
 
+ 
   public formGallery : FormGroup | any = null
   public submitted = false;
   constructor(private formbuilder: FormBuilder, private galleryService : GalleryService ) { 
@@ -25,6 +31,7 @@ export class FormComponent implements OnInit {
       description: ['',[Validators.minLength(2)]],
       price: ['',[Validators.minLength(2)]],
       color: ['',[Validators.minLength(2)]],
+      id: ['',[Validators.minLength(1)]],
 
     })
   }
@@ -43,6 +50,7 @@ export class FormComponent implements OnInit {
         description: this.formGallery.get('description').value,
         price: this.formGallery.get('price').value,
         color: this.formGallery.get('color').value,
+        id: this.formGallery.get('id').value,
        
       };
       
@@ -57,5 +65,11 @@ export class FormComponent implements OnInit {
       
     }
   }
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
+  
+ 
+
  
 }

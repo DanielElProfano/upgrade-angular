@@ -1,51 +1,71 @@
 
-<form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGallery">
+<div class="formulario">
+
+<form class="formulario__main" novalidate (ngSubmit)="onSubmit()" [formGroup]="formGallery">
    
-      <fieldset>
-      <label for="img">imagen:</label>
-      <input type="text" id="img" formControlName="img">
+      <fieldset class="formulario__field">
+       <div class = "formulario__label" >
+      <label for="img">imagen:</label></div>
+      <input class = "formulario__input" type="text" id="img" formControlName="img">
         
       <div *ngIf="!formGallery.get('img').valid &&
           (formGallery.get('img').dirty || submitted)">
         Has introducido mal tu nombre
       </div>
     </fieldset>
-    <fieldset>
-        <label for="alt">alt:</label>
-        <input type="text" id="alt" formControlName="alt">
+    <fieldset class="formulario__field">
+        <label class = "formulario__label" for="alt">alt:</label>
+        <input class = "formulario__input" type="text" id="alt" formControlName="alt">
 
         <div *ngIf="!formGallery.get('alt').valid &&
             (formGallery.get('alt').dirty || submitted)">
           Has introducido mal tu alt
         </div>
       </fieldset>
-      <fieldset>
-        <label for="description">description:</label>
-        <input type="text" id="description" formControlName="description">
+      <fieldset class="formulario__field">
+        <label class = "formulario__label" for="description">description:</label>
+        <input class = "formulario__input" type="text" id="description" formControlName="description">
 
         <div *ngIf="!formGallery.get('description').valid &&
             (formGallery.get('description').dirty || submitted)">
           Has introducido mal tu description
         </div>
       </fieldset>
-      <fieldset>
-        <label for="price">price:</label>
-        <input type="text" id="price" formControlName="price">
+      <fieldset class="formulario__field">
+        <label class = "formulario__label" for="price">price:</label>
+        <input class = "formulario__input" type="text" id="price" formControlName="price">
     
         <div *ngIf="!formGallery.get('price').valid &&
             (formGallery.get('price').dirty || submitted)">
           Has introducido mal tu precio
         </div>
       </fieldset>
-      <fieldset>
-        <label for="color">color:</label>
-        <input type="text" id="color" formControlName="color">
+      <fieldset class="formulario__field">
+        <label class = "formulario__label" for="color">color:</label>
+        <input class = "formulario__input" type="text" id="color" formControlName="color">
            
         <div *ngIf="!formGallery.get('color').valid &&
             (formGallery.get('color').dirty || submitted)">
           Has introducido mal tu color
         </div>
       </fieldset>
-	<button type="submit" [disabled]="!formGallery.valid">Submit</button>
+      <fieldset class = "formulario__label" class="formulario__field">
+        <label class = "formulario__label"for="id">id:</label>
+        <input class = "formulario__input" type="string" id="id" formControlName="id">
+           
+        <div *ngIf="!formGallery.get('id').valid &&
+            (formGallery.get('id').dirty || submitted)">
+          Has introducido mal tu id
+        </div>
+      </fieldset>
+      <ng-lottie class="lottie-button" (click)="onSubmit()" [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+  <button type="submit" [disabled]="!formGallery.valid">Submit</button>
+
+
 
 </form>
+</div>
+
+
+
+

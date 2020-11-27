@@ -1,15 +1,24 @@
-<p>gallery works!</p>
+<div class="main-gallery">
 <app-form></app-form>
 <div class="gallery">
     <div class="gallery__container">
-        <div *ngFor="let foto of fotos" class="gallery__foto">
+        <div *ngFor="let foto of fotos; let index = index" class="gallery__foto">
             
-            <div class="foto">
-                <img src="{{ foto. img }}" alt="{{ foto.alt }}">
-                <p>{{ foto.color }} </p>
-                <p>{{ foto.price }} </p>
+            <div id="{{ foto.id }}">
+                <img class="gallery__img"src="{{ foto.img }}" alt="{{ foto.alt }}">
+                <p class="text__desc">{{ foto.color }} </p>
+                <p class="text__desc">{{ foto.price }}&#8364;</p>
             </div>  
+           
+            <div class="btn" id="{{foto.id}}" (click)="deleteFoto($event)">borrar</div>
+            <div class="btn" id="{{foto.id}}" (click)="modifyFoto($event)">ModiFy</div>
+            <app-delete [borrar]="borrar"></app-delete>
+
+           
         </div>
     </div>  
 
  </div>
+</div>
+ <!-- <app-delete [borrar]="borrar"></app-delete> -->
+

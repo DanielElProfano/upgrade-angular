@@ -10,7 +10,10 @@ import { BodyComponent } from './component/body/body.component';
 import { GalleryComponent } from './component/body/gallery/gallery.component';
 import { FormComponent } from './component/body/gallery/form/form.component';
 import { GalleryService } from './services/gallery.service';
+import { DeleteComponent } from './component/body/gallery/delete/delete.component';
 
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
 @NgModule({
   declarations: [
@@ -19,14 +22,21 @@ import { GalleryService } from './services/gallery.service';
     FooterComponent,
     BodyComponent,
     GalleryComponent,
-    FormComponent
+    FormComponent,
+    DeleteComponent
   ],
+ 
+
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function playerFactory() {
+  return player;
+}
